@@ -28,6 +28,8 @@ import (
 	"syscall"
 	"time"
 
+	libkni "github.com/MikeZappa87/libkni/pkg"
+	libknicni "github.com/MikeZappa87/libkni/pkg/cni"
 	"github.com/coreos/pkg/flagutil"
 	"github.com/flannel-io/flannel/pkg/ip"
 	"github.com/flannel-io/flannel/pkg/ipmatch"
@@ -441,6 +443,10 @@ func main() {
 		wg.Done()
 	}()
 
+	go func() {
+		libkni.NewDefaultKNIServer("/tmp/kni.sock", "unix", libknicni.CreateDefaultConfig())
+	}()
+	
 	_, err = daemon.SdNotify(false, "READY=1")
 	if err != nil {
 		log.Errorf("Failed to notify systemd the message READY=1 %v", err)

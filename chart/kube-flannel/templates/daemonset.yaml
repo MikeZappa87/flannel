@@ -31,31 +31,6 @@ spec:
       - operator: Exists
         effect: NoSchedule
       serviceAccountName: flannel
-      initContainers:
-      - name: install-cni-plugin
-        image: {{ .Values.flannel.image_cni.repository }}:{{ .Values.flannel.image_cni.tag }}
-        command:
-        - cp
-        args:
-        - -f
-        - /flannel
-        - /opt/cni/bin/flannel
-        volumeMounts:
-        - name: cni-plugin
-          mountPath: /opt/cni/bin
-      - name: install-cni
-        image: {{ .Values.flannel.image.repository }}:{{ .Values.flannel.image.tag }}
-        command:
-        - cp
-        args:
-        - -f
-        - /etc/kube-flannel/cni-conf.json
-        - /etc/cni/net.d/10-flannel.conflist
-        volumeMounts:
-        - name: cni
-          mountPath: /etc/cni/net.d
-        - name: flannel-cfg
-          mountPath: /etc/kube-flannel/
       containers:
       - name: kube-flannel
         image: {{ .Values.flannel.image.repository }}:{{ .Values.flannel.image.tag }}
@@ -69,7 +44,7 @@ spec:
             cpu: "100m"
             memory: "50Mi"
         securityContext:
-          privileged: false
+          privileged: true
           capabilities:
             add: ["NET_ADMIN", "NET_RAW"]
         env:
@@ -90,6 +65,9 @@ spec:
           mountPath: /etc/kube-flannel/
         - name: xtables-lock
           mountPath: /run/xtables.lock
+        - mountPath: /run/netns
+          name: netns-volume
+          mountPropagation: Bidirectional
       volumes:
       - name: run
         hostPath:
@@ -107,6 +85,10 @@ spec:
         hostPath:
           path: /run/xtables.lock
           type: FileOrCreate
+      - name: netns-volume
+        hostPath:
+          path: /run/netns
+          type: DirectoryOrCreate
       {{- if .Values.global.imagePullSecrets }}
       imagePullSecrets: {{ toYaml .Values.global.imagePullSecrets | nindent 6 }}
       {{- end }}

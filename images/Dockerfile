@@ -25,6 +25,20 @@ RUN export GOOS=$(xx-info os) &&\
     export ARCH=$(xx-info arch) &&\
     make build
 
+ARG CNI_PLUGINS_VERSION="v1.3.0"
+ARG CNI_PLUGINS_CLONE_URL="https://github.com/containernetworking/plugins"
+RUN git clone --filter=tree:0 "${CNI_PLUGINS_CLONE_URL}" /cni-plugins 
+WORKDIR /cni-plugins
+RUN cd /cni-plugins \
+    && git checkout "${CNI_PLUGINS_VERSION}" \
+    && CGO_ENABLED=0 ./build_linux.sh && mkdir -p /opt/cni/bin \
+    && cp -a ./bin/. /opt/cni/bin/
+
+RUN git clone https://github.com/flannel-io/cni-plugin.git /cni-plugin
+WORKDIR /cni-plugin    
+RUN cd /cni-plugin \
+    && make build_linux && cp -a ./dist/flannel-amd64 /opt/cni/bin/flannel
+
 FROM alpine:20230901
 RUN apk update && apk upgrade
 RUN apk add --no-cache iproute2 net-tools ca-certificates iptables strongswan iptables-legacy && update-ca-certificates
@@ -33,6 +47,7 @@ COPY --from=build /build/dist/flanneld /opt/bin/flanneld
 COPY dist/mk-docker-opts.sh /opt/bin/
 COPY --from=build /iptables-wrapper/iptables-wrapper-installer.sh /
 COPY --from=build /iptables-wrapper/bin/iptables-wrapper /
+COPY --from=build /opt/cni/bin /opt/cni/bin
 RUN /iptables-wrapper-installer.sh --no-sanity-check
 
 
