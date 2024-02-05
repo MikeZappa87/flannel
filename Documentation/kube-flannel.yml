@@ -177,8 +177,6 @@ spec:
         - name: EVENT_QUEUE_DEPTH
           value: "5000"
         volumeMounts:
-        - name: run
-          mountPath: /run/flannel
         - name: flannel-cni-cfg
           mountPath: /etc/cni/net.d
         - name: flannel-cfg
@@ -195,9 +193,6 @@ spec:
         - mountPath: /var/lib/cni
           name: cni
       volumes:
-      - name: run
-        hostPath:
-          path: /run/flannel
       - name: flannel-cni-cfg
         configMap:
           name: kube-flannel-cni-cfg
