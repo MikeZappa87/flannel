@@ -192,6 +192,8 @@ spec:
           name: kni
         - mountPath: /net.db
           name: db
+        - mountPath: /var/lib/cni
+          name: cni
       volumes:
       - name: run
         hostPath:
@@ -218,3 +220,7 @@ spec:
         hostPath:
           path: /net.db
           type: FileOrCreate
+      - name: cni
+        hostPath:
+          path: /var/lib/cni
+          type: DirectoryOrCreate
