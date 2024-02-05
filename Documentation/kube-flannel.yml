@@ -190,6 +190,8 @@ spec:
           mountPropagation: Bidirectional
         - mountPath: /tmp
           name: kni
+        - mountPath: /net.db
+          name: db
       volumes:
       - name: run
         hostPath:
@@ -212,3 +214,7 @@ spec:
         hostPath:
           path: /tmp
           type: Directory
+      - name: db
+        hostPath:
+          path: /net.db
+          type: FileOrCreate
