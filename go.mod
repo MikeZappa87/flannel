@@ -31,14 +31,14 @@ require (
 )
 
 require (
-	github.com/MikeZappa87/libkni v0.0.0-20240204185624-834e0052a4fb
+	github.com/MikeZappa87/libkni v0.0.1
 	github.com/avast/retry-go/v4 v4.3.2
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.464
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/vpc v1.0.464
 )
 
 require (
-	github.com/MikeZappa87/kni-api v0.0.7-0.20240201220129-cdea46f36b48 // indirect
+	github.com/MikeZappa87/kni-api v0.0.8 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
