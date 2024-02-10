@@ -31,7 +31,7 @@ require (
 )
 
 require (
-	github.com/MikeZappa87/libkni v0.0.1
+	github.com/MikeZappa87/libkni v0.2.0
 	github.com/avast/retry-go/v4 v4.3.2
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.464
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/vpc v1.0.464
@@ -43,10 +43,8 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/containerd/containerd v1.7.13 // indirect
-	github.com/containerd/continuity v0.4.2 // indirect
 	github.com/containerd/cri-containerd v1.19.0 // indirect
 	github.com/containerd/go-cni v1.1.9 // indirect
-	github.com/containerd/log v0.1.0 // indirect
 	github.com/containernetworking/cni v1.1.2 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/emicklei/go-restful/v3 v3.11.0 // indirect
@@ -67,7 +65,6 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
-	github.com/moby/sys/mountinfo v0.6.2 // indirect
 	github.com/moby/sys/symlink v0.2.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/prometheus/client_golang v1.14.0 // indirect
