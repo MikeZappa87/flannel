@@ -45,8 +45,8 @@ github.com/Microsoft/hcsshim v0.11.4 h1:68vKo2VN8DE9AdN4tnkWnmdhqdbpUFM8OF3Airm7
 github.com/Microsoft/hcsshim v0.11.4/go.mod h1:smjE4dvqPX9Zldna+t5FG3rnoHhaB7QYxPRqGcpAD9w=
 github.com/MikeZappa87/kni-api v0.0.8 h1:rO7q4fY2ouG65dsPPvGMysCvPgOKjPgj/fMJiCf9p7A=
 github.com/MikeZappa87/kni-api v0.0.8/go.mod h1:5A4mnixcyfsk8Xuw7awf5zbxig+GZGiopArrtLNbE08=
-github.com/MikeZappa87/libkni v0.2.0 h1:PORR3t/wf9MqT3vCHv5Sw1OqH94uhuWtxlWCIALpUeQ=
-github.com/MikeZappa87/libkni v0.2.0/go.mod h1:5WyKlDv7g8kGN9t6AxSSwU60uDmds/nfdKcG1Rf+jU8=
+github.com/MikeZappa87/libkni v0.3.0 h1:a3NwVcaNAogUYkw2M1aDuIK13K+nrHm5u8jVacJidG4=
+github.com/MikeZappa87/libkni v0.3.0/go.mod h1:5WyKlDv7g8kGN9t6AxSSwU60uDmds/nfdKcG1Rf+jU8=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=

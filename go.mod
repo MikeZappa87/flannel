@@ -31,7 +31,7 @@ require (
 )
 
 require (
-	github.com/MikeZappa87/libkni v0.2.0
+	github.com/MikeZappa87/libkni v0.3.0
 	github.com/avast/retry-go/v4 v4.3.2
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.464
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/vpc v1.0.464
